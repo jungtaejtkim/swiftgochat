@@ -27,16 +27,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         
         GIDSignIn.sharedInstance().signIn()
         
-        /*
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let naviVC = storyboard.instantiateViewController(withIdentifier: "NaviVC") as! UINavigationController
-        
-        let appdelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        appdelegate.window?.rootViewController = naviVC
- 
-        */
     }
     
 
