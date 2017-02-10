@@ -1,0 +1,6 @@
+framework module Pods_gogochat {
+  umbrella header "Pods-gogochat-umbrella.h"
+
+  export *
+  module * { export * }
+}
