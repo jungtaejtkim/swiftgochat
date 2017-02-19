@@ -48,7 +48,7 @@
                                     <constraint firstAttribute="width" constant="343" id="MIZ-YB-aMA"/>
                                     <constraint firstAttribute="height" constant="30" id="sXt-U8-7cE"/>
                                 </constraints>
-                                <state key="normal" title="Log in with Anonymously">
+                                <state key="normal" title="Log in with Man or Girl">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -109,7 +109,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NaviVC" automaticallyAdjustsScrollViewInsets="NO" id="fYb-lV-iAK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6cE-U7-256">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6cE-U7-256">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.14901960784313725" green="0.26666666666666666" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

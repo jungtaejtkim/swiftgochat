@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import GoogleSignIn
-
+import FirebaseDatabase
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
 
@@ -35,6 +35,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
             print(error.localizedDescription)
         } else {
             print(user.authentication)
+            
+            
             Helper.helper.loginwithGoogle(authentication: user.authentication)
         }
         
@@ -53,6 +55,22 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDeleg
         
         
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+            if user != nil {
+                print(user!)
+                Helper.helper.switchToNaviVC()
+            } else {
+                
+                print("unauthorized")
+                
+            }
+        })
+        // JT: firebase offer this mothod to monitor user's signing status but I can use just if nil case
     }
 
     override func didReceiveMemoryWarning() {

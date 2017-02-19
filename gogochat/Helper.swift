@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 import GoogleSignIn
 
 class Helper {
@@ -22,11 +23,17 @@ class Helper {
         FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
             if error != nil {
                 
-                print(error?.localizedDescription)
+                print((error?.localizedDescription)!)
                 
             } else {
                 
-                print(user?.uid)
+                print((user?.uid)!)
+                
+                
+                let newUser = FIRDatabase.database().reference().child("users").child((user?.uid)!)
+                
+                newUser.setValue(["id" : user?.uid, "displayname" : "anonymous", "photoUrl" : ""])
+                
                 
                 self.switchToNaviVC()
             }
@@ -40,14 +47,29 @@ class Helper {
         
         FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
             if error != nil {
-                print(error?.localizedDescription)
-                return
+                print((error?.localizedDescription)!)
+                
             } else {
-                print(user?.uid)
-                print(user?.displayName)
-                print(user?.email)
+                print((user?.uid)!)
+                print((user?.displayName)!)
+                print((user?.email)!)
+                print((user?.photoURL)!)
+                
+                
+                
+                let newUser = FIRDatabase.database().reference().child("users").child((user?.uid)!)
+                
+                let photoUrl : String = String(describing: (user?.photoURL!)!)
+                
+                newUser.setValue(["id" : user?.uid, "displayname" : user?.displayName, "photoUrl" : photoUrl])
+                
                 self.switchToNaviVC()
+                
+                
+                
             
+                
+                
             }
             
             
@@ -55,7 +77,7 @@ class Helper {
         
     }
     
-    private func switchToNaviVC() {
+    func switchToNaviVC() {
         
         
         
